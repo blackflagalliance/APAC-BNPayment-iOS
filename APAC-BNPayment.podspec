@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name             = "APAC-BNPayment"
-  spec.version          = "1.2.5"
+  spec.version          = "1.2.6"
   spec.summary          = "The Mobile Payment SDK from Bambora (APAC) makes it simple to accept credit card payments in your app."
   build_tag             = spec.version
   spec.homepage         = "http://bambora.com/en/au"
@@ -14,10 +14,10 @@ Pod::Spec.new do |spec|
   spec.requires_arc     = true
   spec.module_name = 'BNPayment'
   spec.header_dir = 'BNPayment'
+  spec.libraries        = 'c++'
   spec.source_files     = 'BNPayment/**/**'
-  spec.exclude_files = 'BNPayment/CardIO/**'
   spec.vendored_frameworks = 'Example/VisaCheckoutHybrid.framework'
-  spec.dependency 'CardIO', '~> 5.4.1'
+  spec.vendored_libraries = 'BNPayment/CardIO/libCardIO.a', 'BNPayment/CardIO/libopencv_core.a', 'BNPayment/CardIO/libopencv_imgproc.a'
   spec.resource_bundles = {
                             'BNPayment' => ['Assets/**/*.{png,bundle,xib,nib,cer,html}']
                           }
