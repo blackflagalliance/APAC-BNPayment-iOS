@@ -287,7 +287,7 @@ NSInteger const TitleHeight = 30;
 - (void)cardIOCustomisation{
     if(_guiSetting!=nil && _cardIOButton!=nil)
     {
-        if(_guiSetting.registrationCardIOEnable)
+        if(!_guiSetting.registrationCardIODisable)
         {
             if(_guiSetting.registrationCardIOColor.length==7)
             {

@@ -35,7 +35,7 @@
                      expiryDateWatermark:(NSString *)expiryDateWatermark
                    securityCodeWatermark:(NSString *)securityCodeWatermark
                  registrationButtonColor:(NSString *)registrationButtonColor
-                 registrationCardIOEnable:(BOOL)registrationCardIOEnable
+                 registrationCardIODisable:(BOOL)registrationCardIODisable
                  registrationCardIOColor:(NSString *)registrationCardIOColor
 {
     BNCardRegistrationGuiSetting *cardRegistrationGuiSetting = [BNCardRegistrationGuiSetting new];
@@ -46,7 +46,7 @@
     cardRegistrationGuiSetting.expiryDateWatermark = expiryDateWatermark;
     cardRegistrationGuiSetting.securityCodeWatermark = securityCodeWatermark;
     cardRegistrationGuiSetting.registrationButtonColor = registrationButtonColor;
-    cardRegistrationGuiSetting.registrationCardIOEnable = registrationCardIOEnable;
+    cardRegistrationGuiSetting.registrationCardIODisable = registrationCardIODisable;
     cardRegistrationGuiSetting.registrationCardIOColor = registrationCardIOColor;
     return cardRegistrationGuiSetting;
 }
@@ -77,8 +77,8 @@
         case registrationButtonColor:
             guiKey = @"registrationButtonColor";
             break;
-        case registrationCardIOEnable:
-            guiKey = @"registrationCardIOEnable";
+        case registrationCardIODisable:
+            guiKey = @"registrationCardDisable";
             break;
         case registrationCardIOColor:
             guiKey = @"registrationCardIOColor";

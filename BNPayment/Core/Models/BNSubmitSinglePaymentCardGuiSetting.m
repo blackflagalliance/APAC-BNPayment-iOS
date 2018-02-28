@@ -61,8 +61,8 @@
         case cardIOColor:
             guiKey = @"cardIOColor";
             break;
-        case cardIOEnable:
-            guiKey = @"cardIOEnable";
+        case cardIODisable:
+            guiKey = @"cardIODisable";
             break;
         default:
             [NSException raise:NSGenericException format:@"Unexpected submitSinglePaymentCardGuiEnum."];

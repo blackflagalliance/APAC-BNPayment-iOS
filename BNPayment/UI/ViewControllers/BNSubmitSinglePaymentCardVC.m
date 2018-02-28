@@ -390,7 +390,7 @@ NSInteger const SinglePaymentSaveCardLabelWidth = 75;
 - (void)cardIOCustomisation{
     if(_guiSetting!=nil && _cardIOButton!=nil)
     {
-        if(_guiSetting.cardIOEnable)
+        if(!_guiSetting.cardIODisable)
         {
             if(_guiSetting.cardIOColor.length==7)
             {

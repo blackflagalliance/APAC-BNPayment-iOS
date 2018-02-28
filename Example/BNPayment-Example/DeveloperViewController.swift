@@ -208,7 +208,7 @@ class DeveloperViewController: UIViewController {
         cardRegistrationGuiSetting.securityCodeWatermark = txtRegistrationSecurityCode.text
         cardRegistrationGuiSetting.registrationButtonColor = txtRegistrationButtonColor.text
         cardRegistrationGuiSetting.registerButtonText = txtRegistrationButtonText.text
-        cardRegistrationGuiSetting.registrationCardIOEnable=registrationCardIOSwitch.isOn
+        cardRegistrationGuiSetting.registrationCardIODisable = !(registrationCardIOSwitch.isOn)
         cardRegistrationGuiSetting.registrationCardIOColor=txtRegistrationCardIOColor.text
         AppSettings.sharedInstance().setCardRegistrationGuiSetting(cardRegistrationGuiSetting)
     }
@@ -226,9 +226,9 @@ class DeveloperViewController: UIViewController {
         submitSinglePaymentCardGuiSetting.switchButtonColor = txtPaymentSwitchButtonColor.text
         submitSinglePaymentCardGuiSetting.switchButtonColor = txtPaymentSwitchButtonColor.text
         submitSinglePaymentCardGuiSetting.loadingBarColor = txtPaymentLoadingColor.text
-        submitSinglePaymentCardGuiSetting.cardIOEnable=paymentCardIOSwitch.isOn
+        submitSinglePaymentCardGuiSetting.cardIODisable = !(paymentCardIOSwitch.isOn)
         submitSinglePaymentCardGuiSetting.cardIOColor=txtPaymentCardIOColor.text
-    AppSettings.sharedInstance().setSubmitSinglePaymentCardGuiSetting(submitSinglePaymentCardGuiSetting)
+        AppSettings.sharedInstance().setSubmitSinglePaymentCardGuiSetting(submitSinglePaymentCardGuiSetting)
     }
     
     
@@ -242,7 +242,7 @@ class DeveloperViewController: UIViewController {
         txtRegistrationSecurityCode.text = cardRegistrationGuiSetting?.securityCodeWatermark
         txtRegistrationButtonColor.text = cardRegistrationGuiSetting?.registrationButtonColor
         txtRegistrationButtonText.text = cardRegistrationGuiSetting?.registerButtonText
-        registrationCardIOSwitch.setOn((cardRegistrationGuiSetting?.registrationCardIOEnable)!, animated: true)
+        registrationCardIOSwitch.setOn(!(cardRegistrationGuiSetting?.registrationCardIODisable)!, animated: true)
         txtRegistrationCardIOColor.text = cardRegistrationGuiSetting?.registrationCardIOColor
     }
     
@@ -258,7 +258,7 @@ class DeveloperViewController: UIViewController {
         txtPaymentSecurityCode.text = submitSinglePaymentCardGuiSetting?.securityCodeWatermark
         txtPaymentSwitchButtonColor.text = submitSinglePaymentCardGuiSetting?.switchButtonColor
         txtPaymentLoadingColor.text = submitSinglePaymentCardGuiSetting?.loadingBarColor
-        paymentCardIOSwitch.setOn((submitSinglePaymentCardGuiSetting?.cardIOEnable)!, animated: true)
+        paymentCardIOSwitch.setOn(!(submitSinglePaymentCardGuiSetting?.cardIODisable)!, animated: true)
         txtPaymentCardIOColor.text = submitSinglePaymentCardGuiSetting?.cardIOColor
     }
     
