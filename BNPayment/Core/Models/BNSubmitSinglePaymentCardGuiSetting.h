@@ -37,7 +37,9 @@ typedef enum
     payButtonText,
     payButtonColor,
     switchButtonColor,
-    loadingBarColor
+    loadingBarColor,
+    cardIOEnable,
+    cardIOColor
 } submitSinglePaymentCardGuiEnum;
 
 
@@ -51,6 +53,8 @@ typedef enum
 @property (nonatomic, strong) NSString *switchButtonColor;
 @property (nonatomic, strong) NSString *payButtonColor;
 @property (nonatomic, strong) NSString *loadingBarColor;
+@property (nonatomic, strong) NSString *cardIOColor;
+@property (nonatomic) BOOL cardIOEnable;
 +(NSString *)GetGuiKey:(submitSinglePaymentCardGuiEnum)guiEnum;
 
 

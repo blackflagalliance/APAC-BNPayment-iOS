@@ -35,6 +35,8 @@
                      expiryDateWatermark:(NSString *)expiryDateWatermark
                    securityCodeWatermark:(NSString *)securityCodeWatermark
                  registrationButtonColor:(NSString *)registrationButtonColor
+                 registrationCardIOEnable:(BOOL)registrationCardIOEnable
+                 registrationCardIOColor:(NSString *)registrationCardIOColor
 {
     BNCardRegistrationGuiSetting *cardRegistrationGuiSetting = [BNCardRegistrationGuiSetting new];
     cardRegistrationGuiSetting.titleText = titleText;
@@ -44,6 +46,8 @@
     cardRegistrationGuiSetting.expiryDateWatermark = expiryDateWatermark;
     cardRegistrationGuiSetting.securityCodeWatermark = securityCodeWatermark;
     cardRegistrationGuiSetting.registrationButtonColor = registrationButtonColor;
+    cardRegistrationGuiSetting.registrationCardIOEnable = registrationCardIOEnable;
+    cardRegistrationGuiSetting.registrationCardIOColor = registrationCardIOColor;
     return cardRegistrationGuiSetting;
 }
 
@@ -73,7 +77,12 @@
         case registrationButtonColor:
             guiKey = @"registrationButtonColor";
             break;
-            
+        case registrationCardIOEnable:
+            guiKey = @"registrationCardIOEnable";
+            break;
+        case registrationCardIOColor:
+            guiKey = @"registrationCardIOColor";
+            break;
         default:
             [NSException raise:NSGenericException format:@"Unexpected cardRegistrationGuiEnum."];
     }
