@@ -2,6 +2,9 @@
 #import "VisaCheckoutLaunchParams.h"
 #import <JavaScriptCore/JavaScriptCore.h>
 #import "BNBundleUtils.h"
+
+@import WebKit;
+
 @protocol VisaCheckOutButtonDelegate10 <NSObject>
 
 -(void)VisaCheckoutSuccess:(NSDictionary *)VisaCheckoutPayment;
@@ -13,7 +16,7 @@
 @end
 
 
-@interface VisaCheckOutButton_iOS10 : UIWebView
+@interface VisaCheckOutButton_iOS10 : WKWebView
 
 
 -(void)loadUIWithViewController:(UIViewController *)viewController andData:(VisaCheckoutLaunchParams *)visaCheckoutLaunchParams andLoadingColor:(UIColor *)color;

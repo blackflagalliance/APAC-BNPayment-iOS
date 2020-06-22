@@ -1,7 +1,9 @@
 #import "VisaCheckOutButton_iOS10.h"
 #import <VisaCheckoutHybrid/VisaCheckoutHybrid.h>
 
-@interface VisaCheckOutButton_iOS10 ()<UIWebViewDelegate>
+@import WebKit;
+
+@interface VisaCheckOutButton_iOS10 ()<WKNavigationDelegate>
 
 @property (nonatomic, strong) UIActivityIndicatorView *activityIndicator;
 
@@ -43,7 +45,7 @@
    [VisaCheckoutPlugin configureWithWebView:self viewController:viewController];
     self.scrollView.scrollEnabled=NO;
 
-    self.delegate = self;
+    self.navigationDelegate = self;
     
     NSBundle *bundle = [BNBundleUtils getBundleFromCocoaPod];
     if(!bundle)
@@ -58,20 +60,18 @@
     [self loadHTMLString:content baseURL:nil];
 }
 
-- (BOOL)webView:(UIWebView* )webView shouldStartLoadWithRequest:(nonnull NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
-    
+- (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
     if([VisaCheckoutPlugin shouldHandleRequest:request])
     {
         [VisaCheckoutPlugin handleRequest:request];
-        return false;
+        decisionHandler(WKNavigationActionPolicyCancel);
     }
-    return true;
+    
+    decisionHandler(WKNavigationActionPolicyAllow);
 }
 
-
-- (void)webViewDidFinishLoad:(UIWebView *)webView
+- (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation
 {
-    
     if(![webView isLoading])
     {
         [self.activityIndicator stopAnimating];
