@@ -61,9 +61,9 @@
 }
 
 - (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
-    if([VisaCheckoutPlugin shouldHandleRequest:request])
+    if([VisaCheckoutPlugin shouldHandleRequest:navigationAction.request])
     {
-        [VisaCheckoutPlugin handleRequest:request];
+        [VisaCheckoutPlugin handleRequest:navigationAction.request];
         decisionHandler(WKNavigationActionPolicyCancel);
     }
     
